@@ -1,0 +1,23 @@
+<div class="po-row">
+  <div class="po-md-4">
+    <po-select
+      p-label="Raça"
+      [p-options]="breedsOptions"
+      (p-change)="breedChanged($event)">
+    </po-select>
+</div>
+  <div class="po-md-3">
+    <img [src]="dogImg" class="breed-img">
+  </div>
+</div>
+
+<div class="po-row">
+  <po-select
+    p-label="Selecione um nome para adotar!"
+    formControlName="name"
+    [p-options]="breedsOptions">
+  </po-select>
+  {{breedChangedName}}
+</div>
+
+
