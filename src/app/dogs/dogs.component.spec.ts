@@ -68,9 +68,9 @@ describe('DogsComponent', () => {
     ];
 
     // TODO: breedsChangeListener$ NÃO É UMA FUNÇÃO!
-    // spyOn<any>(component['dogsSvc'], 'breedsChangeListener$').and.returnValue(of(mock));
+    spyOn<any>(component['dogsSvc'], 'breedsChangeListener$').and.returnValue(of(mock));
 
-    component['dogsSvc'].breedsChangeListener$ = of(mock);
+    // component['dogsSvc'].breedsChangeListener$ = of(mock);
 
     component.setListener();
     expect(component.breedsOptions).toEqual(mock);

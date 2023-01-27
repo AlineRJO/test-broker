@@ -3,7 +3,7 @@ import { of } from 'rxjs';
 import { useDogsResourceStub } from '../testing/dogs-resource-stub';
 import { DogsService } from './dogs.service';
 
-fdescribe('DogsService', () => {
+describe('DogsService', () => {
   let service: DogsService;
 
   beforeEach(() => {
@@ -18,13 +18,16 @@ fdescribe('DogsService', () => {
   });
 
   it('should preparedAllBreeds - com objeto nulo!', () => {
+    // TODO: Grande problema é o vício de sair colocando o valor já esperado no resource
+    // É pecar nas validações, quando passamos null...
+
     const mock = {item: {message: 'aaaa'}};
-    console.log("mock: ", mock);
+
     spyOn(service['dogsRsc'], 'getAllBreeds').and.returnValue(of(mock));
     spyOn<any>(service, 'breedsList');
 
     const spy = spyOn(service['breedsChange'], 'next');
-    // service.preparedAllBreeds();
-    // expect(spy).toHaveBeenCalled();
+    service.preparedAllBreeds();
+    expect(spy).toHaveBeenCalled();
   });
 });

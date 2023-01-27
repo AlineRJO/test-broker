@@ -35,10 +35,19 @@ module.exports = function (config) {
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
-    logLevel: config.LOG_INFO,
-    autoWatch: true,
+        browserDisconnectTolerance: 2,         // maximum number of tries a browser will attempt in the case of a disconnection
+        browserNoActivityTimeout: 50000, // How long will Karma wait for a message from a browser before disconnecting from it (in ms).
+        logLevel: config.LOG_INFO,
+        autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    customLaunchers: {
+      ChromeDebugging: {
+          base: 'Chrome',
+          flags: ['--remote-debugging-port=9333'],
+          debug: true
+      }
+  }
   });
 };

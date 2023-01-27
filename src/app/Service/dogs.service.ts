@@ -15,7 +15,7 @@ export class DogsService {
 
   preparedAllBreeds() {
     this.dogsRsc.getAllBreeds().subscribe(item => {
-      // TODO: PRIMEIRO PROBLEMA, SE VIER NULL? VALIDACAO
+      // TODO: PRIMEIRO PROBLEMA, SE VIER NULL O ITEM? VALIDACAO
       this.breedsChange.next(this.breedsList(item.message));
     });
   }
