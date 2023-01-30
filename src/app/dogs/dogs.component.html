@@ -1,23 +1,29 @@
-<div class="po-row">
-  <div class="po-md-4">
-    <po-select
-      p-label="Raça"
-      [p-options]="breedsOptions"
-      (p-change)="breedChanged($event)">
-    </po-select>
-</div>
-  <div class="po-md-3">
-    <img [src]="dogImg" class="breed-img">
+<form [formGroup]="breedForm">
+  <div class="po-row">
+    <div class="po-md-4">
+      <po-select
+        p-label="Raça"
+        [p-options]="breedsOptions"
+        (p-change)="breedChanged($event)">
+      </po-select>
   </div>
-</div>
+    <div class="po-md-3">
+      <img [src]="dogImg" class="breed-img">
+    </div>
+  </div>
 
-<div class="po-row">
-  <po-select
-    p-label="Selecione um nome para adotar!"
-    formControlName="name"
-    [p-options]="breedsOptions">
-  </po-select>
+<div class="po-row po-pt-1 po-pb-3">
   {{breedChangedName}}
 </div>
+  <div class="po-row">
+    <po-select
+      p-label="Selecione um para adotar!"
+      formControlName="name"
+      [p-options]="nameOptions"
+      [p-disabled]="disableName">
+    </po-select>
+  </div>
+</form>
+
 
 

@@ -1,4 +1,4 @@
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { PoMenuModule, PoPageModule, PoToolbarModule } from '@po-ui/ng-components';
@@ -6,7 +6,8 @@ import { PoMenuModule, PoPageModule, PoToolbarModule } from '@po-ui/ng-component
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  let component: AppComponent;
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         PoMenuModule,
@@ -14,17 +15,13 @@ describe('AppComponent', () => {
         PoToolbarModule,
         RouterTestingModule
       ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  }));
+      providers: [AppComponent]
+    });
+    component = TestBed.inject(AppComponent);
+  });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
 });
